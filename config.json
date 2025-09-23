@@ -86,4 +86,31 @@
       "name": "小猫咪资源"
     }
   }
+  "custom_category": [
+    {
+      "name": "战争片",
+      "type": "movie",
+      "query": "战争"
+    },
+    {
+      "name": "喜剧片",
+      "type": "movie",
+      "query": "喜剧"
+    },
+    {
+      "name": "爱情片",
+      "type": "movie",
+      "query": "爱情"
+    },
+    {
+      "name": "伦理片",
+      "type": "movie",
+      "query": "伦理"
+    },
+    {
+      "name": "动作片",
+      "type": "movie",
+      "query": "动作"
+    }
+  ]
 }
