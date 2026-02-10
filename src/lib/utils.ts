@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any,no-console */
 
 import Hls from 'hls.js';
-import { processDoubanUrl } from '@/lib/utils';
+
 
 /**
  * 获取图片代理 URL 设置
