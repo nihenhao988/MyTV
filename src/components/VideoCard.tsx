@@ -4,6 +4,7 @@ import { CheckCircle, Heart, Link, PlayCircleIcon } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { processDoubanUrl } from '@/lib/utils';
 
 import {
   deleteFavorite,
