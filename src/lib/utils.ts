@@ -37,8 +37,10 @@ export function processImageUrl(originalUrl: string): string {
   const proxyUrl = getImageProxyUrl();
   if (!proxyUrl) return originalUrl;
 
-  return `${proxyUrl}${encodeURIComponent(originalUrl)}`;
-}
+  return (
+  'https://mytov.xinwan.dpdns.org/douban/' +
+  originalUrl.replace('https://img3.doubanio.com/', '')
+);
 
 /**
  * 获取豆瓣代理 URL 设置
