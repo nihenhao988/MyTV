@@ -38,11 +38,8 @@ export function processImageUrl(originalUrl: string): string {
   const proxyUrl = getImageProxyUrl();
   if (!proxyUrl) return originalUrl;
 
-  return (
-  'https://mytov.xinwan.dpdns.org/douban/' +
-  originalUrl.replace('https://img3.doubanio.com/', '')
-);
-
+  return `${proxyUrl}${encodeURIComponent(originalUrl)}`;
+}
 /**
  * 获取豆瓣代理 URL 设置
  */
@@ -75,12 +72,17 @@ export function getDoubanProxyUrl(): string | null {
 export function processDoubanUrl(originalUrl: string): string {
   if (!originalUrl) return originalUrl;
 
-  const proxyUrl = getDoubanProxyUrl();
-  if (!proxyUrl) return originalUrl;
+  // 不是豆瓣图片 → 不处理
+  if (!originalUrl.startsWith('https://img3.doubanio.com/')) {
+    return originalUrl;
+  }
 
-  return `${proxyUrl}${encodeURIComponent(originalUrl)}`;
+  // Cloudflare Worker 反代前缀
+  const prefix = 'https://mytov.xinwan.dpdns.org/douban/';
+
+  // 去掉豆瓣域名，拼接路径
+  return prefix + originalUrl.replace('https://img3.doubanio.com/', '');
 }
-
 export function cleanHtmlTags(text: string): string {
   if (!text) return '';
   return text
